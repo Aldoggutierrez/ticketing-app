@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2alpha3.json": "file://wsl.localhost/Ubuntu/home/aldogtz/ticketing/skaffold.yml"
+    }
+}
