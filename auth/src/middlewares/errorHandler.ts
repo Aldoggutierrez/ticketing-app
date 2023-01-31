@@ -1,8 +1,16 @@
 import { Request,Response, NextFunction } from "express";
+import { CustomError } from "../Errors/customError";
 
 export const errorHnadler = (err: Error,req: Request,res: Response,next: NextFunction) => {
-    //console.log('Somting went wrong', err);
-    res.status(400).send({
-        message: err.message
-    })
+
+    if (err instanceof CustomError) {
+        return res.status(err.statusCode).send({ errors: err.serializeErrors() })
+    }
+
+    res.status(400).send([{ errors:[
+        {
+            message: err.message
+        }
+    ]
+    }])
 }
